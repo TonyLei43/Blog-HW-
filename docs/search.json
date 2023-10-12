@@ -40,5 +40,26 @@
     "title": "About",
     "section": "",
     "text": "About this blog"
+  },
+  {
+    "objectID": "posts/HW 1/HW1.html",
+    "href": "posts/HW 1/HW1.html",
+    "title": "Homework 1: What’s the averarge temperature?",
+    "section": "",
+    "text": "In this tutorial, we will learn how to work with databases, geographical data and how to visualize them using the matplotlib library. The data we will be using is the NOAA climate data which we will explore in the next few cells."
+  },
+  {
+    "objectID": "posts/HW 1/HW1.html#introduction",
+    "href": "posts/HW 1/HW1.html#introduction",
+    "title": "Homework 1: What’s the averarge temperature?",
+    "section": "",
+    "text": "In this tutorial, we will learn how to work with databases, geographical data and how to visualize them using the matplotlib library. The data we will be using is the NOAA climate data which we will explore in the next few cells."
+  },
+  {
+    "objectID": "posts/HW 1/HW1.html#creating-a-database",
+    "href": "posts/HW 1/HW1.html#creating-a-database",
+    "title": "Homework 1: What’s the averarge temperature?",
+    "section": "Creating A Database",
+    "text": "Creating A Database\nWe will first create a database in which we will store our dataframes. I like to think of them as a big warehouse where you can retrieve dataframes on command. This allows us to move large datasets into memory. We will use Python’s built-in module called sqlite3 to create, maipulate, and query the database. First, let’s import the sqlite3 module and create a connection by\n\nimport sqlite3\nconnection = sqlite3.connect(\"temps.db\")\n\nsqlite3.connect(\"temps.db\") allows us to “connect” with the database."
   }
 ]
