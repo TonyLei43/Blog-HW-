@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Homeworks",
+    "section": "",
+    "text": "Homework 0\n\n\n\n\n\n\n\nWeek 1\n\n\nHomework\n\n\n\n\n\n\n\n\n\n\n\nOct 4, 2023\n\n\nTony Lei\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "posts/HW 0/index.html",
+    "href": "posts/HW 0/index.html",
+    "title": "Homework 0",
+    "section": "",
+    "text": "In this tutorial, we will be learning how to construct interesting data visualizations using the Palmer Penguins data set. The Palmer Penguins data set is a dataset provided by Dr. Kristen Gorman and the Palmer Station, Antarctica Long Term Ecological Research (LTER) Program. This dataset includes features such as size measurements, Nitrogen isotope ratios, and geographical data amongst others that can be explored.\nFirst, let’s download our data using the following code below. We need to import the pandas library using import pandas as pd. We will also import matplotlib and seaborn linraries that will help us with plotting later. Then we will fetch our data using the url link given by url and read in the data with pd.read_csv(url)\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\nurl = \"https://raw.githubusercontent.com/PhilChodrow/PIC16B/master/datasets/palmer_penguins.csv\"\npenguins = pd.read_csv(url)"
+  },
+  {
+    "objectID": "posts/HW 0/index.html#introduction",
+    "href": "posts/HW 0/index.html#introduction",
+    "title": "Homework 0",
+    "section": "",
+    "text": "In this tutorial, we will be learning how to construct interesting data visualizations using the Palmer Penguins data set. The Palmer Penguins data set is a dataset provided by Dr. Kristen Gorman and the Palmer Station, Antarctica Long Term Ecological Research (LTER) Program. This dataset includes features such as size measurements, Nitrogen isotope ratios, and geographical data amongst others that can be explored.\nFirst, let’s download our data using the following code below. We need to import the pandas library using import pandas as pd. We will also import matplotlib and seaborn linraries that will help us with plotting later. Then we will fetch our data using the url link given by url and read in the data with pd.read_csv(url)\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\nurl = \"https://raw.githubusercontent.com/PhilChodrow/PIC16B/master/datasets/palmer_penguins.csv\"\npenguins = pd.read_csv(url)"
+  },
+  {
+    "objectID": "posts/HW 0/index.html#exploration",
+    "href": "posts/HW 0/index.html#exploration",
+    "title": "Homework 0",
+    "section": "Exploration",
+    "text": "Exploration\nNow that we’ve downloaded the data and stored it into a dataframe called penguins, let’s see how it looks like. We can do that with the function penguins.head(). penguins is the name of the dataframe and the .head(n) method allows us the preview the first \\(n\\) rows of the dataframe.\n\npenguins.head(5)\n\n\n\n\n\n\n\n\nstudyName\nSample Number\nSpecies\nRegion\nIsland\nStage\nIndividual ID\nClutch Completion\nDate Egg\nCulmen Length (mm)\nCulmen Depth (mm)\nFlipper Length (mm)\nBody Mass (g)\nSex\nDelta 15 N (o/oo)\nDelta 13 C (o/oo)\nComments\n\n\n\n\n0\nPAL0708\n1\nAdelie Penguin (Pygoscelis adeliae)\nAnvers\nTorgersen\nAdult, 1 Egg Stage\nN1A1\nYes\n11/11/07\n39.1\n18.7\n181.0\n3750.0\nMALE\nNaN\nNaN\nNot enough blood for isotopes.\n\n\n1\nPAL0708\n2\nAdelie Penguin (Pygoscelis adeliae)\nAnvers\nTorgersen\nAdult, 1 Egg Stage\nN1A2\nYes\n11/11/07\n39.5\n17.4\n186.0\n3800.0\nFEMALE\n8.94956\n-24.69454\nNaN\n\n\n2\nPAL0708\n3\nAdelie Penguin (Pygoscelis adeliae)\nAnvers\nTorgersen\nAdult, 1 Egg Stage\nN2A1\nYes\n11/16/07\n40.3\n18.0\n195.0\n3250.0\nFEMALE\n8.36821\n-25.33302\nNaN\n\n\n3\nPAL0708\n4\nAdelie Penguin (Pygoscelis adeliae)\nAnvers\nTorgersen\nAdult, 1 Egg Stage\nN2A2\nYes\n11/16/07\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nAdult not sampled.\n\n\n4\nPAL0708\n5\nAdelie Penguin (Pygoscelis adeliae)\nAnvers\nTorgersen\nAdult, 1 Egg Stage\nN3A1\nYes\n11/16/07\n36.7\n19.3\n193.0\n3450.0\nFEMALE\n8.76651\n-25.32426\nNaN\n\n\n\n\n\n\n\nWe see that there are a lot of columns to look at which can be confusing at times so let’s take a subset of those columns and further examine those. We can look at all the columns with penguins.columns. We see that there are \\(17\\) columns. Before we can subset it, we’ll copy the original dataframe using penguins.copy() to make a copy of the dataframe and assign it to penguins_copy. Then we can pick the columns we want to subset and store them in a variable called cols. To subset the data we can simply do penguins[cols].\n\n#create a subdf \npenguins.columns\n\nIndex(['studyName', 'Sample Number', 'Species', 'Region', 'Island', 'Stage',\n       'Individual ID', 'Clutch Completion', 'Date Egg', 'Culmen Length (mm)',\n       'Culmen Depth (mm)', 'Flipper Length (mm)', 'Body Mass (g)', 'Sex',\n       'Delta 15 N (o/oo)', 'Delta 13 C (o/oo)', 'Comments'],\n      dtype='object')\n\n\n\npenguins_copy = penguins.copy()\ncols = ['Species', 'Region', 'Island',  'Culmen Length (mm)',\n       'Culmen Depth (mm)', 'Flipper Length (mm)', 'Body Mass (g)', 'Sex',\n       'Delta 15 N (o/oo)', 'Delta 13 C (o/oo)']\npenguins_subset = penguins_copy[cols]\n\nNow that we have subsetted out data, lets take a look at it again with penguins_subset.head()\n\npenguins_subset.head()\n\n\n\n\n\n\n\n\nSpecies\nRegion\nIsland\nCulmen Length (mm)\nCulmen Depth (mm)\nFlipper Length (mm)\nBody Mass (g)\nSex\nDelta 15 N (o/oo)\nDelta 13 C (o/oo)\n\n\n\n\n0\nAdelie Penguin (Pygoscelis adeliae)\nAnvers\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nMALE\nNaN\nNaN\n\n\n1\nAdelie Penguin (Pygoscelis adeliae)\nAnvers\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nFEMALE\n8.94956\n-24.69454\n\n\n2\nAdelie Penguin (Pygoscelis adeliae)\nAnvers\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nFEMALE\n8.36821\n-25.33302\n\n\n3\nAdelie Penguin (Pygoscelis adeliae)\nAnvers\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n4\nAdelie Penguin (Pygoscelis adeliae)\nAnvers\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nFEMALE\n8.76651\n-25.32426\n\n\n\n\n\n\n\nGreat! Now that we’ve subsetted our data let’s select 4 quantitaive features to build a correlation matrix. This can be done using penguins_subset[cols].corr since we are subsetting the dataframe penguins_subset.\n\ncols = ['Culmen Length (mm)',\n       'Culmen Depth (mm)', 'Flipper Length (mm)', 'Body Mass (g)']\npenguins_subset[cols].corr()\n\n\n\n\n\n\n\n\nCulmen Length (mm)\nCulmen Depth (mm)\nFlipper Length (mm)\nBody Mass (g)\n\n\n\n\nCulmen Length (mm)\n1.000000\n-0.235053\n0.656181\n0.595110\n\n\nCulmen Depth (mm)\n-0.235053\n1.000000\n-0.583851\n-0.471916\n\n\nFlipper Length (mm)\n0.656181\n-0.583851\n1.000000\n0.871202\n\n\nBody Mass (g)\n0.595110\n-0.471916\n0.871202\n1.000000\n\n\n\n\n\n\n\nThe correlation matrix tells us how one variable is related to another. Note that higher absolute values indicate higher correlation. We see that Culmen Length (mm) and Flipper Length (mm) have a correlation of \\(0.656181\\) which indicates that there is a somewhat strong correlation between these 2 variables. Let’s plot this correlation to see it visually using the sns.scatterplot() function."
+  },
+  {
+    "objectID": "posts/HW 0/index.html#plotting",
+    "href": "posts/HW 0/index.html#plotting",
+    "title": "Homework 0",
+    "section": "Plotting",
+    "text": "Plotting\nWe can look into the documentation for sns.scatterplot to see what we should input as our parameters.  ’seaborn.scatterplot(data=None, *, x=None, y=None, hue=None,…)’  We can fill in these parameters with the ones we want to plot. - data=penguins_subset: this is the dataframe we want to plot from - x = 'Culmen Length (mm)': this is the column we want to plot on our \\(x-\\)axis - y = 'Flipper Length (mm)': this is the column we want to plot on our \\(y-\\)axis - hue = 'Island' : this allows use to color the points based on a 3rd variable that is categorical. We choose Island in this case but Sex, Region, etc… also work!\nWe can also add a title to our plot by doing plt.title(\"INSERT TITLE\"). We will go with “Culmen Length vs Flipper Length”\n\nsns.scatterplot(data = penguins_subset, x='Culmen Length (mm)', y = 'Flipper Length (mm)', hue = 'Island')\nplt.title(\"Culmen Length vs Flipper Length\")\n\nText(0.5, 1.0, 'Culmen Length vs Flipper Length')\n\n\n\n\n\nCongrats! You have created your first plot. We can indeed see that there is a decently strong positive correlation between culmen length and flipper length. Let’s do another just for fun using Body Mass (g) and Flipper Length (mm) and using Species for hue. Like for the previous one, we’ll add a title as well.\n\nsns.scatterplot(data = penguins_copy, x='Body Mass (g)', y = 'Flipper Length (mm)', hue = 'Species')\nplt.title(\"Body Mass vs Flipper Length\")\n\nText(0.5, 1.0, 'Body Mass vs Flipper Length')"
+  },
+  {
+    "objectID": "posts/GeoBlog/geoviz-1-preclass.html",
+    "href": "posts/GeoBlog/geoviz-1-preclass.html",
+    "title": "<!–",
+    "section": "",
+    "text": "title: “Examaple: Geographic Data Visualization” date: “2023-10-07” categories: [Example, plotly]\nimport plotly.io as pio pio.renderers.default=“iframe” –&gt;"
+  },
+  {
+    "objectID": "posts/GeoBlog/geoviz-1-preclass.html#creating-basemaps",
+    "href": "posts/GeoBlog/geoviz-1-preclass.html#creating-basemaps",
+    "title": "<!–",
+    "section": "Creating Basemaps",
+    "text": "Creating Basemaps\n\nimport pandas as pd\ncoords = pd.DataFrame({\n    \"lon\" : [-118.44300984639733], \n    \"lat\" : [34.0696449790177],\n    \"message\" : [\"Wish you were here\"]\n})\ncoords\n\n\n\n\n\n\n\n\nlon\nlat\nmessage\n\n\n\n\n0\n-118.44301\n34.069645\nWish you were here\n\n\n\n\n\n\n\n\nfrom plotly import express as px\n\nfig = px.scatter_mapbox(coords, \n                        lat = \"lat\",\n                        lon = \"lon\", \n                        hover_name = \"message\",\n                        zoom = 15,\n                        height = 300,\n                        mapbox_style=\"open-street-map\")\n\nfig.update_layout(margin={\"r\":0,\"t\":0,\"l\":0,\"b\":0})\nfig.show()\n\nModuleNotFoundError: No module named 'plotly'\n\n\nLet’s break this down a bit. The first line is importing the express module of plotly.\nThe magic happens starting on the third line, when we call px.scatter_mapbox(). The first argument must be a data frame. The lat and lon arguments tell px which columns contain the latitude and longitude coordinates. The hover_name specifies what should appear when we hover over the plotted point with our mouse. zoom controls the initial zoom level of the map, which can subsequently be modified by the user. height allows one to control the aspect ratio. There are many other parameters to px.scatter_mapbox().\nThe final next two lines control which map tiles are used in the visualization and the amount of whitespace around the visualization. The final line actually displays the map.\nNow let’s try changing up the zoom level and the map tiles. The positron tiles from CartoDB are very low-contrast, which is very helpful when creating plots that use these tiles as backgrounds.\n\n# different zoom level, use cartoDB tiles\nfig = px.scatter_mapbox(coords, \n                        lat = \"lat\",\n                        lon = \"lon\", \n                        hover_name = \"message\",\n                        zoom = 18,\n                        height = 300,\n                        mapbox_style=\"carto-positron\")\n\nfig.update_layout(margin={\"r\":0,\"t\":0,\"l\":0,\"b\":0})\nfig.show()\n\nUnable to display output for mime type(s): application/vnd.plotly.v1+json\n\n\nMaybe you dream of mountains, valleys, and beaches?\n\n# different zoom level, use Stamen Terrain tiles\n\nfig = px.scatter_mapbox(coords, \n                        lat = \"lat\",\n                        lon = \"lon\", \n                        hover_name = \"message\",\n                        zoom = 10,\n                        height = 300,\n                        mapbox_style=\"stamen-terrain\")\n\nfig.update_layout(margin={\"r\":0,\"t\":0,\"l\":0,\"b\":0})\nfig.show()\n\nNameError: name 'px' is not defined\n\n\nSumming up, Plotly makes it unreasonably easy to create attractive, interactive maps in Python. Let’s now go from “pretty maps” to “informative, scientific data graphics.”"
+  },
+  {
+    "objectID": "posts/GeoBlog/geoviz-1-preclass.html#geographic-scatterplots",
+    "href": "posts/GeoBlog/geoviz-1-preclass.html#geographic-scatterplots",
+    "title": "<!–",
+    "section": "Geographic Scatterplots",
+    "text": "Geographic Scatterplots\nAnother thing we might want to do is color code the climate stations according to some quantitative measure. Let’s compute the average temperature in March for each one over the most recent decade, and use this to color code them.\n\ninterval = \"2011-2020\"\nurl = f\"https://raw.githubusercontent.com/PhilChodrow/PIC16B/master/datasets/noaa-ghcn/decades/{interval}.csv\"\ntemps = pd.read_csv(url)\n\nFirst we’ll compute the average in March for each station.\nNext, we’ll merge the latitude/longitude data from the stations data frame.\nGreat! This is the data we need. Now we can supply this data to px.scatter_mapbox, using as the value of color the name variable that we want use to shade the points.\nThis plot makes it easy to see that countries near the equator tend to be warmer (at least in March)."
+  }
+]

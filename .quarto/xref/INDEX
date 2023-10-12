@@ -1,0 +1,26 @@
+{
+  "index.qmd": {
+    "index.html": "8b8ad7bd"
+  },
+  "posts/post-with-code/index.qmd": {
+    "index.html": "eca068ec"
+  },
+  "posts/welcome/index.qmd": {
+    "index.html": "f65c7f53"
+  },
+  "about.qmd": {
+    "about.html": "6c1472b2"
+  },
+  "posts/HW 0/index.qmd": {
+    "index.html": "2774a76b"
+  },
+  "posts/HW 0/hw0.ipynb": {
+    "hw0.html": "3593d547"
+  },
+  "posts/HW 0/index.ipynb": {
+    "index.html": "2362535e"
+  },
+  "posts/GeoBlog/geoviz-1-preclass.ipynb": {
+    "geoviz-1-preclass.html": "2af19ab3"
+  }
+}
